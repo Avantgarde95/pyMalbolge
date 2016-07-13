@@ -1,6 +1,6 @@
-- hello.mal : from https://en.wikipedia.org/wiki/Malbolge
+- hello.mal : from https://en.wikipedia.org/wiki/Malbolge#Example_Program
 
-- cat.mal : from https://esolangs.org/wiki/malbolge
+- cat.mal : from https://esolangs.org/wiki/malbolge#Cat
 
 - quine.mal : from http://matthias-ernst.eu/malbolgequine.html
 
