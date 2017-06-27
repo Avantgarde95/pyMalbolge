@@ -1,4 +1,4 @@
-#pyMalbolge
+# pyMalbolge
 
 Simple Malbolge(https://en.wikipedia.org/wiki/Malbolge) interpreter in python
 
