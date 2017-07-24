@@ -38,7 +38,7 @@ def initialize(source, mem):
     for c in source:
         if c == ' ' or c == '\n':
             continue
-        
+
         if (ord(c)+i) % 94 not in OPS_VALID:
             print 'Invalid character in the source file'
             sys.exit(1)
@@ -89,7 +89,7 @@ def interpret(mem):
 
         if mem[c] >= 33 and mem[c] <= 126:
             mem[c] = ENCRYPT[mem[c] - 33]
-        
+
         c = 0 if c == POW10-1 else c+1
         d = 0 if d == POW10-1 else d+1
 
@@ -117,3 +117,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print '\nUser interrupt'
         sys.exit(0)
+
