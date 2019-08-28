@@ -1,6 +1,5 @@
 #!usr/bin/env python
 
-from __future__ import with_statement
 import sys
 
 TABLE_CRAZY = (
@@ -9,9 +8,9 @@ TABLE_CRAZY = (
     (2, 2, 1)
 )
 
-ENCRYPT = map(ord,
+ENCRYPT = list(map(ord,
               '5z]&gqtyfr$(we4{WP)H-Zn,[%\\3dL+Q;>U!pJS72FhOA1CB'\
-              '6v^=I_0/8|jsb9m<.TVac`uY*MK\'X~xDl}REokN:#?G\"i@')
+              '6v^=I_0/8|jsb9m<.TVac`uY*MK\'X~xDl}REokN:#?G\"i@'))
 
 OPS_VALID = (4, 5, 23, 39, 40, 62, 68, 81)
 
@@ -26,8 +25,8 @@ def crazy(a, b):
     result = 0
     d = 1
 
-    for i in xrange(10):
-        result += TABLE_CRAZY[(b/d)%3][(a/d)%3] * d
+    for i in range(10):
+        result += TABLE_CRAZY[int((b/d)%3)][int((a/d)%3)] * d
         d *= 3
 
     return result
@@ -40,11 +39,11 @@ def initialize(source, mem):
             continue
 
         if (ord(c)+i) % 94 not in OPS_VALID:
-            print 'Invalid character in the source file'
+            print('Invalid character in the source file')
             sys.exit(1)
 
         if i == POW10:
-            print 'Source file is too long'
+            print('Source file is too long')
             sys.exit(1)
 
         mem[i] = ord(c)
@@ -70,7 +69,7 @@ def interpret(mem):
         if v == 4:                        # jmp [d]
             c = mem[d]
         elif v == 5:                      # out a
-            write(chr(a % 256))
+            write(chr(int(a % 256)))
             flush()
         elif v == 23:                     # in a
             a = ord(read(1))
@@ -97,7 +96,7 @@ def interpret(mem):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print 'No arguments'
+        print('No arguments')
         sys.exit(1)
 
     filename = sys.argv[1]
@@ -106,7 +105,7 @@ if __name__ == '__main__':
         with open(filename, 'r') as p:
             source = p.read()
     except IOError:
-        print 'Unable to open the file'
+        print('Unable to open the file')
         sys.exit(1)
 
     mem = [0] * POW10
@@ -115,6 +114,5 @@ if __name__ == '__main__':
     try:
         interpret(mem)
     except KeyboardInterrupt:
-        print '\nUser interrupt'
+        print('\nUser interrupt')
         sys.exit(0)
-
