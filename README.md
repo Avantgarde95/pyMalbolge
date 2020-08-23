@@ -7,3 +7,7 @@ Simple Malbolge(https://en.wikipedia.org/wiki/Malbolge) interpreter in python
 - Reference interpreter (by Ben Olmstead) is also included. (```ref/mbi.c```) 
 
 - Example codes are not mine!
+
+Requirements
+
+- Python 3.X
